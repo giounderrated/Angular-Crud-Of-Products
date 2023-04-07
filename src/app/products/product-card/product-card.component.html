@@ -1,0 +1,24 @@
+<div class="max-w-sm p-4 shadow-md bg-zinc-900 min-h-full">
+    <div class="space-y-4">
+        <div class="space-y-2">
+            <a class="cursor-pointer" [routerLink]="['/product-details',product.id]">
+                <img [src]="product.thumbnail" [alt]="product.title"
+                    class="block object-cover object-center w-full rounded-lg h-32 md:h-48">
+            </a>
+        </div>
+        <div class="space-y-2 h-20 md:h-28 text-ellipsis overflow-hidden ...">
+            <h2 class="text-teal-500 font-bold text-xl">{{product.title}}</h2>
+            <p class="text-white text-lg">{{product.description}}</p>
+        </div>
+        <div class="space-y-2">
+            <h3 class="text-red-500 font-bold text-xl">{{(product.price/100) | currency:'USD':'symbol-narrow':'1.2-2'}}
+            </h3>
+        </div>
+        <div class="space-y-2">
+            <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product.category.name}}</span>
+            <span
+                class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{product.brand.name}}</span>
+        </div>
+    </div>
+</div>

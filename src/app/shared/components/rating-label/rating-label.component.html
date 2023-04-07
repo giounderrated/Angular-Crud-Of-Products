@@ -1,0 +1,5 @@
+<div>
+    <button *ngFor="let r of ratingArr; index as i">
+        <fa-icon [icon]="getStar(i)" [style]="{color:'yellow'}" (click)="handleClick(i)"></fa-icon>
+    </button>
+</div>

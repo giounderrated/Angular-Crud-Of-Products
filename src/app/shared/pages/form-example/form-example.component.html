@@ -1,0 +1,91 @@
+<div class="flex items-center justify-center h-full py-2">
+    <div class="bg-gray-800 flex flex-col w-full border border-gray-900 rounded-lg px-8 py-2">
+        <div class="text-white mt-10">
+            <h1 class="font-bold text-4xl">Welcome</h1>
+            <p class="font-semibold">Form Example</p>
+        </div>
+        <form class="flex flex-col space-y-8 mt-10 text-white" [formGroup]="form" (ngSubmit)="save()">
+            <input type="text" placeholder="Firstname"
+                class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"
+                formControlName="firstname">
+            <div class="bg-red-600 text-white" *ngIf="firstname.invalid && (firstname?.touched || firstname?.dirty)">
+                <div *ngIf="firstname?.errors?.['required']">
+                    First Name can't be emtpy
+                </div>
+            </div>
+
+            <input type="text" placeholder="Lastname"
+                class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"
+                formControlName="lastname">
+
+            <div class="space-y-2" formGroupName="contacts">
+                <select class="border rounded-lg px-3 bg-gray-700 border-gray-700 placeholder-gray-500 py-2 w-full"
+                    formControlName="contactType">
+                    <option value="-1">Prefered Contact</option>
+                    <option value="email">Email</option>
+                    <option value="phone">Phone</option>
+                </select>
+                <div class="space-x-2">
+                    <input type="text" placeholder="email"
+                        class="border rounded-lg py-2 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"
+                        formControlName="email">
+                    <input type="text" placeholder="phone"
+                        class="border rounded-lg py-2 px-3 bg-gray-700 border-gray-700 placeholder-gray-500"
+                        formControlName="phone">
+                </div>
+            </div>
+            <div class="w-full" formArrayName="skills">
+                <ng-container *ngFor="let skillForm of skillsForm.controls; let i = index">
+                    <div class="grid grid-cols-12 py-2" [formGroupName]="i">
+                        <div class="flex col-span-5 space-x-2">
+                            <label [for]="'programLanguage' + i" class="">Programing Language</label>
+                            <input type="text" [id]="'programLanguage' + i" formControlName="programLanguage"
+                                class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500" />
+                        </div>
+                        <div class="flex col-span-5 space-x-2">
+                            <label [for]="'experience' + i" class="form-label">Experience</label>
+                            <input type="number" [id]="'experience' + i" formControlName="experience"
+                                class="border rounded-lg py-3 px-3 bg-gray-700 border-gray-700 placeholder-gray-500" />
+                        </div>
+                        <div class="col-span-2">
+                            <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+                                type="button" (click)="removeSkillFormGroup(i)">
+                                Delete
+                            </button>
+                        </div>
+                        <div class="grid grid-cols-12 col-span-12">
+                            <div class="bg-red-500 text-white col-span-6"
+                                *ngIf="getProgrammingLanguage(i).invalid && getProgrammingLanguage(i).touched">
+                                <div *ngIf="getProgrammingLanguage(i).errors?.['required']">
+                                    Known programing skill can't be empty
+                                </div>
+                            </div>
+                            <div class="bg-red-500 text-white col-span-6"
+                                *ngIf="getExperience(i).invalid && getExperience(i).touched">
+                                <div *ngIf="getExperience(i)?.errors?.['required']">
+                                    Experience cant be empty
+                                </div>
+                                <div *ngIf="getExperience(i).errors?.['min']">
+                                    Too min
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </ng-container>
+                <div class="flex justify-center">
+                    <button type="button" (click)="addASkillFormGroup()"
+                        class="bg-blue-500 w-1/3 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded">
+                        Add A Skill
+                    </button>
+                </div>
+
+            </div>
+            <button class="border border-blue-500 bg-blue-500 text-white rounded-lg py-3 font-semibold disabled:text-red-500" [disabled]="form.invalid">Submit</button>
+        </form>
+    </div>
+    <div class="text-white text-md">
+        <p>
+            {{preview | json}}
+        </p>
+    </div>
+</div>

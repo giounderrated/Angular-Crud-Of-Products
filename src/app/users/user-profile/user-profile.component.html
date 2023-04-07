@@ -1,0 +1,16 @@
+<section class="flex items-center justify-center h-screen">
+    <div *ngIf="user" class="w-72 md:w-1/2 h-96 rounded overflow-hidden shadow-lg bg-stone-900">
+        <div class="w-72  md:w-1/2 absolute flex justify-center -mt-24">
+            <img [src]="user.avatar" class="h-48 w-48 rounded-full" alt="">
+        </div>
+        <div class="flex items-center justify-center mt-28 space-y-5 flex-col">
+            <h1 class="text-2xl text-cyan-500">{{user.username}}</h1>
+            <h2 class="text-xl text-cyan-500">{{user.email}}</h2>
+            <h2 class="text-xl text-teal-700">{{user.role}}</h2>
+            <div class="w-full text-center">
+                <button (click)="logout()"
+                    class="w-1/2  md:w-1/6 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-xl">Logout</button>
+            </div>
+        </div>
+    </div>
+</section>

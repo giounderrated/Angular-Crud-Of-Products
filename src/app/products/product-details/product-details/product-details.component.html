@@ -1,0 +1,33 @@
+<div class="grid grid-cols-6 gap-2 p-4 text-white">
+    <div class="col-span-3 md:col-span-1">
+        <div *ngFor="let image of product.images" class="p-2">
+            <img [src]="image" [alt]="product.title"
+                class="block object-cover object-center w-full rounded-lg h-16 md:h-32">
+        </div>
+    </div>
+    <div class="flex col-span-3 md:col-span-3">
+        <img class="w-full rounded h-2/4 object-contain object-center" [src]="currentImage" />
+    </div>
+    <div class="col-span-6 flex flex-col p-2 md:col-span-2">
+        <h1 class="text-center text-4xl font-extrabold py-2">{{product.title}}</h1>
+        <p class="text-lg py-2">
+            {{product.description}}
+        </p>
+        <div class="text-2xl py-2">
+            <fa-icon [icon]="faDollarSign"></fa-icon>{{(product.price/100)}}
+        </div>
+        <div class="flex py-4 gap-2">
+            <label
+                class="text-white text-sm inline-flex items-center font-bold leading-sm uppercase px-3 py-2 rounded-full bg-blue-900">
+                {{product.category.name}}
+            </label>
+            <label
+                class="text-white text-sm inline-flex items-center font-bold leading-sm uppercase px-3 py-2 rounded-full bg-blue-900">
+                {{product.brand.name}}
+            </label>
+        </div>
+        <div class="space-y-2">
+            <app-rating-label [rating]="product.rating" [readOnly]="true"></app-rating-label>
+        </div>
+    </div>
+</div>
