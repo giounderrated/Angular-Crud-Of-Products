@@ -32,4 +32,8 @@ export class ProductDetailsComponent {
     })
   }
 
+  changeImage(index:number){
+    this.currentImage = this.product.images[index];
+  }
+
 }

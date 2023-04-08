@@ -24,7 +24,9 @@ import { AuthInterceptorService } from './core/services/auth/auth-interceptor.se
 import { ManageComponent } from './admin/manage/manage.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ViewEditComponent } from './admin/products/view-edit/view-edit.component';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddComponent } from './admin/products/add/add.component'; 
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { ViewEditComponent } from './admin/products/view-edit/view-edit.componen
     UserProfileComponent,
     ManageComponent,
     ViewEditComponent,
+    AddComponent,
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,9 @@ import { ViewEditComponent } from './admin/products/view-edit/view-edit.componen
     FontAwesomeModule,
     ReactiveFormsModule,
     FontAwesomeModule,
-    DialogModule
+    DialogModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     {

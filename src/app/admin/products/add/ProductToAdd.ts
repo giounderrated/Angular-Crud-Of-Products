@@ -1,6 +1,3 @@
-import { Brand } from "../brands/Brand";
-import { Category } from "../categories/Category";
-
 export interface Product{
     id?:number;
     title:string;
@@ -10,7 +7,7 @@ export interface Product{
     rating:number;
     stock:number;
     discountPercentage:number;
-    brand:Brand;
-    category:Category;
+    brand_id:number;
+    category_id:number;
     images:string[];
 }

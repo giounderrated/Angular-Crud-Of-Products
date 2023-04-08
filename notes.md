@@ -52,9 +52,6 @@ ng add @fortawesome/angular-fontawesome
 npm install jwt-decode
 ```
 
-
-
-
 # Angular custom rating system
 1. https://www.youtube.com/watch?v=SxFRqYAA-IU
 2. https://betterprogramming.pub/how-to-create-a-star-rating-component-in-angular-ff32234ea531

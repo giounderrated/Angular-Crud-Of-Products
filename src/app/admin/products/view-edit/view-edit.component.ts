@@ -10,17 +10,17 @@ import { DIALOG_DATA } from '@angular/cdk/dialog';
 })
 export class ViewEditComponent {
   isEdit:boolean=false;
+  product:Product;
 
-  constructor(@Inject(DIALOG_DATA) public product: Product) {
-    this.checkIfIsEdit();
+  constructor(@Inject(DIALOG_DATA) private data: any) {
+    console.log(data);
+    this.initData(data);
   }
 
-  checkIfIsEdit(){
-    if(this.product.id && this.product.id!=null ) {
-      return; 
-    }
-    this.isEdit = true;
-  }
+  initData(data:any){
+    this.product = data.product;
+    this.isEdit = data.isEdit;
 
+  }
 
 }

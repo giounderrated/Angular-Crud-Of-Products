@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/products/Product';
+import { Product as ProductToAdd } from 'src/app/admin/products/add/ProductToAdd';
 import { environment } from 'src/environments/environment.development';
 import { Endpoints } from '../../api/Endpoints';
 import { Jsend } from '../../api/JSend';
@@ -36,8 +37,8 @@ export class ProductService {
     );
   }
 
-  createProduct(product: Product): Observable<Jsend<Product>> {
-    return this.http.post<Jsend<Product>>(
+  createProduct(product: ProductToAdd): Observable<Jsend<ProductToAdd>> {
+    return this.http.post<Jsend<ProductToAdd>>(
       this.url + Endpoints.products,
       product,
       { headers: this.getJsonHeaders() }

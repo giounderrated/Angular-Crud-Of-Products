@@ -26,7 +26,7 @@ const routes: Routes = [
   },
   {
     path:'manage', component: ManageComponent,
-    canActivate:[AuthGuard,AdminGuard]
+    // canActivate:[AuthGuard,AdminGuard]
   },
   { path: 'form-example', component: FormExampleComponent },
   { path: '**', component: NotFoundComponent },

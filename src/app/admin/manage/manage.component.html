@@ -2,16 +2,25 @@
     <div class="m-1 lg:m-auto bg-zinc-900 w-full lg:w-3/5 ">
         <h1 class="text-center text-2xl text-slate-100 font-bold p-2">Manage Products</h1>
         <div class="grid grid-cols-8 lg:grid-cols-12 w-full p-2">
-            <div class="mb-4 flex space-x-2 col-span-8">
+            <div class="mb-4 flex space-x-2 col-span-6 bg-white">
                 <input
                     class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-800 leading-tight focus:outline-none focus:shadow-outline"
                     type="text" placeholder="Search products">
-                <button
-                    class="bg-white text-zinc-900 rounded-lg shadow p-2 hover:bg-zinc-900 hover:text-white">Search</button>
+                <button class="bg-white text-zinc-900 rounded-lg shadow p-2 hover:bg-zinc-900 hover:text-white">
+                    <fa-icon [icon]="faSearch">
+                    </fa-icon></button>
             </div>
-            <div class="col-span-3 lg:col-start-10">
-                <button
-                class="bg-teal-400 w-full text-zinc-900 rounded-sm shadow hover:bg-zinc-900 p-2 hover:text-white ">Add a Product</button>
+            <div class="hidden md:inline md:col-span-2 md:col-start-10">
+                <button (click)="openDialog()"
+                    class="bg-teal-400 w-full text-zinc-900 rounded-sm shadow hover:bg-zinc-900 p-2 hover:text-white ">Add
+                    a Product</button>
+            </div>
+            <div class="md:hidden col-start-8 col-span-2">
+                <button (click)="openDialog()"
+                    class="bg-teal-400 w-full text-zinc-900 rounded-sm shadow hover:bg-zinc-900 p-2 hover:text-white ">
+                    <fa-icon [icon]="faPlus">
+                    </fa-icon>
+                </button>
             </div>
 
         </div>
@@ -43,17 +52,17 @@
                     <img [src]="product.thumbnail" class="block object-cover object-center rounded-sm h-10 lg:h-24">
                 </div>
             </div>
-            <div class="col-span-2 lg:col-span-2">
+            <div class="col-span-2">
                 <div class="grid grid-cols-2">
                     <div class="col-span-1 text-yellow-400">
-                        <button (click)="openDialog(product.id)">
-                            <fa-icon [icon]="faEdit" [style]="{'font-size':'1.6rem'}">
+                        <button (click)="openEditOrView(product.id, true)">
+                            <fa-icon [icon]="faEdit" [style]="{'font-size':'1.4rem'}">
                             </fa-icon>
                         </button>
                     </div>
                     <div class="col-span-1 text-red-700">
                         <button>
-                            <fa-icon [icon]="faRemove" [style]="{'font-size':'1.6rem'}"></fa-icon>
+                            <fa-icon [icon]="faRemove" [style]="{'font-size':'1.4rem'}"></fa-icon>
                         </button>
                     </div>
                 </div>
