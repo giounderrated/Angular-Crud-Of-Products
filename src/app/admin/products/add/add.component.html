@@ -1,25 +1,25 @@
 <section class="text-black bg-white w-full h-full flex flex-col">
-    <div class="flex-grow text-center m-2">
+    <div class="text-center">
         <h1 class="text-2xl">Add a Product</h1>
         <div>
-            <form class="flex flex-col space-y-1" [formGroup]="addForm" (ngSubmit)="saveProduct()">
-                <input class="p-2 rounded-lg" type="text" placeholder="Title or name" formControlName="title">
-                <input class="p-2 rounded-lg" type="text" placeholder="Description" formControlName="description">
+            <form class="flex flex-col space-y-4" [formGroup]="addForm" (ngSubmit)="saveProduct()">
+                <input class="p-2 rounded-md" type="text" placeholder="Title or name" formControlName="title">
+                <input class="p-2 rounded-md" type="text" placeholder="Description" formControlName="description">
                 <div class="grid grid-cols-2 space-y-2 space-x-2">
-                    <input class="p-2 col-span-1 rounded-lg" type="number" placeholder="Price" formControlName="price">
-                    <input class="p-2 col-span-1 rounded-lg" type="number" placeholder="Stock" formControlName="stock">
-                    <select class="rounded-lg block w-full p-2.5" formControlName="brand_id">
+                    <input class="p-2 col-span-1 rounded-md" type="number" placeholder="Price" formControlName="price">
+                    <input class="p-2 col-span-1 rounded-md" type="number" placeholder="Stock" formControlName="stock">
+                    <select class="rounded-md p-2" formControlName="brand_id">
                         <option value="" selected disabled hidden>Select a Brand</option>
                         <option *ngFor="let brand of brands$ | async" [value]="brand.id"> {{brand.name}} </option>
                     </select>
-                    <select class="rounded-lg block w-full p-2.5" formControlName="category_id">
+                    <select class="rounded-md p-2" formControlName="category_id">
                         <option value="" selected disabled hidden>Select a Category</option>
                         <option *ngFor="let category of categories$ | async" [value]="category.id"> {{category.name}}
                         </option>
                     </select>
-                    <input class="p-2 col-span-1 rounded-lg" type="number" placeholder="Discount (optional)"
+                    <input class="p-2 col-span-1 rounded-md" type="number" placeholder="Discount (optional)"
                         formControlName="discountPercentage">
-                    <input class="p-2 col-span-1 rounded-lg" type="number" placeholder="Rating (optional)"
+                    <input class="p-2 col-span-1 rounded-md" type="number" placeholder="Rating (optional)"
                         formControlName="rating">
                 </div>
                 <div class="w-full flex justify-center p-2 space-x-2">
@@ -27,11 +27,12 @@
                     <input type="text" placeholder="Thumbnail image as URL" class="flex-grow"
                         formControlName="thumbnail">
                 </div>
-                <button>Save</button>
+                <div class="grid grid-cols-2 gap-4 m-2">
+                    <button class="bg-red-500 rounded-lg px-2 py-2 my-2 text-white">Close</button>
+                    <button class="bg-indigo-500 rounded-lg px-2 py-2 my-2 text-white">Save</button>
+                </div>
+
             </form>
         </div>
-    </div>
-    <div class="m-2 text-center ">
-        <button class="bg-red-500 text-dark px-4 py-2" mat-dialog-close>Close</button>
     </div>
 </section>

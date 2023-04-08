@@ -31,8 +31,8 @@ export class ManageComponent {
   openDialog() {
     // let product = this.products.filter((product)=>product.id==id)[0]
     const dialogRef = this.dialog.open(AddComponent,{
-      height: '400px',
-      width: '600px',
+      height: '450px',
+      width: '500px',
     });
   }
 

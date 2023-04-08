@@ -1,4 +1,4 @@
-<div class="w-full bg-teal-500 p-2">
+<div class="w-full bg-blue-500 p-2">
     <nav class="text-white">
         <div class="flex px-4 py-2">
             <div class="flex-shrink-0">
@@ -12,7 +12,7 @@
                     <li class="mx-4">
                         <a [routerLink]="['/home']" class="
                   px-3 py-1 rounded-md text-shadow text-center cursor-pointer
-                  hover:bg-teal-900 focus:outline-none focus:bg-teal-900
+                  hover:bg-blue-900 focus:outline-none focus:bg-blue-900
                   ">
                             home
                         </a>
@@ -20,7 +20,7 @@
                     <li class="mx-4 px-2">
                         <a [routerLink]="['/product-list']" class="
                   px-3 py-1 rounded-md text-shadow text-center cursor-pointer
-                  hover:bg-teal-900 focus:outline-none focus:bg-teal-900
+                  hover:bg-blue-900 focus:outline-none focus:bg-blue-900
                   ">
                             Products
                         </a>
@@ -37,7 +37,7 @@
             <div class="hidden md:inline flex-grow-1 justify-end"
                 *ngIf="isAuthenticated && (userRole=='ROLE_ADMIN' || userRole=='ROLE_SUPERADMIN')">
                 <a class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer
-                hover:bg-teal-900 focus:outline-none focus:bg-teal-900" routerLink="manage">Manage</a>
+                hover:bg-blue-900 focus:outline-none focus:bg-blue-900" routerLink="manage">Manage</a>
             </div>
 
             <div class="hidden md:inline flex-grow-1 justify-end mx-4 px-2" *ngIf="isAuthenticated">
@@ -49,8 +49,8 @@
             <div class="-mr-2 flex flex-grow justify-end lg:hidden">
                 <button (click)="toggleHamburger()" class="
               inline-flex items-center justify-center p-2 rounded-md text-gray-400
-              hover:text-white hover:bg-teal-700 focus:outline-none focus:bg-teal-700
-              focus:text-white active:text-white active:bg-teal-900
+              hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700
+              focus:text-white active:text-white active:bg-blue-900
               ">
                     <svg class="h-6 w-6" stroke="white" fill="none" viewBox="0 0 24 24">
                         <path [ngClass]="{'hidden': hamburgerOpen, 'inline-flex': !hamburgerOpen }" class="inline-flex"
@@ -73,16 +73,16 @@
                     </a>
                 </li>
                 <li class="mx-4">
-                    <a routerLink="contact" class="
+                    <a routerLink="user-profile" class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer
+                    hover:bg-slate-700 focus:outline-none focus:bg-slate-900">Profile</a>
+                </li>
+                <li class="mx-4" *ngIf="isAuthenticated && (userRole=='ROLE_ADMIN' || userRole=='ROLE_SUPERADMIN')">
+                    <a routerLink="manage" class="
                 px-3 py-1 rounded-md text-shadow text-center cursor-pointer
                 hover:bg-slate-700 focus:outline-none focus:bg-slate-900
                 ">
-                        Contact
+                        manage
                     </a>
-                </li>
-                <li class="mx-4">
-                    <a routerLink="user-profile" class="px-3 py-1 rounded-md text-shadow text-center cursor-pointer
-                    hover:bg-slate-700 focus:outline-none focus:bg-slate-900">Profile</a>
                 </li>
             </ul>
         </div>

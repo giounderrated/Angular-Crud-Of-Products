@@ -43,30 +43,34 @@ export class AddComponent implements OnInit {
     this.addForm = this.fb.group({
       title: ['', Validators.required],
       description: [''],
-      price: [0],
-      stock: [0],
+      price: [],
+      stock: [],
       brand_id: ['',Validators.required],
       category_id: ['',Validators.required],
-      discountPercentage: [0],
-      rating: [0],
+      discountPercentage: [],
+      rating: [],
       thumbnail: ['', Validators.required],
     });
   }
 
+
   saveProduct(){
     if(!this.addForm.valid) return;
+
+    let rating = this.addForm.get('rating').value
+    let discount = this.addForm.get('discountPercentage').value;
 
     let product:Product ={
       title: this.addForm.get('title').value,
       description: this.addForm.get('description').value,
       thumbnail: this.addForm.get('thumbnail').value,
       price: this.addForm.get('price').value,
-      rating: this.addForm.get('rating').value,
+      rating: rating ? rating: 0,
       stock: this.addForm.get('stock').value,
       brand_id: this.addForm.get('brand_id').value,
       category_id: this.addForm.get('category_id').value,
       images: [],
-      discountPercentage: this.addForm.get('discountPercentage').value
+      discountPercentage: discount ? discount: 0
     } 
     console.log(product);
     

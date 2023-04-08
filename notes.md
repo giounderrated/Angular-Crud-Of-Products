@@ -59,6 +59,9 @@ npm install jwt-decode
 # Go back button
 https://medium.com/quick-code/go-back-button-in-angular-save-route-history-in-angular-374f28c4a793
 
+https://nils-mehlhorn.de/posts/angular-navigate-back-previous-page/
+
+https://mightytechno.com/creating-a-reusable-button-component-in-angular/
 # Forms explained
 https://www.learmoreseekmore.com/2022/06/angular14-reactive-forms-example.html
 
